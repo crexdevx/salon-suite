@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Star, ArrowUpRight, PenLine } from "lucide-react";
+import { Star, ArrowUpRight, PenLine, Quote } from "lucide-react";
 import { siteConfig } from "@/config/site";
 
 const summary = {
@@ -32,6 +32,18 @@ const reviews = [
     text: "Great service, reasonable price and good staff. Highly recommended for anyone in Nalbari looking for a neat, professional cut.",
   },
 ];
+
+function Avatar({ name }: { name: string }) {
+  const initial = name.charAt(0).toUpperCase();
+  return (
+    <span
+      className="flex h-11 w-11 items-center justify-center rounded-full bg-primary font-display text-lg font-bold uppercase text-primary-foreground"
+      aria-hidden="true"
+    >
+      {initial}
+    </span>
+  );
+}
 
 function Stars({ value, label }: { value: number; label?: string }) {
   return (
@@ -131,30 +143,45 @@ export function Reviews() {
               key={review.name}
               data-reveal
               data-index={i + 2}
-              className={`card-editorial flex flex-col p-6 ${reveal(i + 2)}`}
+              className={`card-editorial flex flex-col overflow-hidden ${reveal(i + 2)}`}
               style={{ ["--reveal-delay" as string]: `${i * 0.1}s` }}
             >
-              <Stars value={review.rating} label={`${review.rating} out of 5`} />
-              <blockquote className="mt-4 flex-1 text-sm leading-relaxed text-foreground/85">
-                &ldquo;{review.text}&rdquo;
-              </blockquote>
-              <div className="mt-6 border-t border-border pt-4">
-                <p className="font-display text-base font-bold uppercase tracking-[0.06em] text-foreground">
-                  {review.name}
-                </p>
-                <p className="mt-1 text-[0.7rem] uppercase tracking-[0.14em] text-muted-foreground">
-                  {review.meta} · {review.when}
-                </p>
+              <div className="flex items-center gap-4 border-b border-border bg-surface/60 px-6 py-4">
+                <Avatar name={review.name} />
+                <div className="min-w-0 flex-1">
+                  <p className="truncate font-display text-base font-bold uppercase tracking-[0.06em] text-foreground">
+                    {review.name}
+                  </p>
+                  <p className="mt-0.5 text-[0.7rem] uppercase tracking-[0.14em] text-muted-foreground">
+                    {review.meta}
+                  </p>
+                </div>
               </div>
-              {review.reply ? (
-                <p className="mt-4 border-l-2 border-primary bg-surface/70 px-4 py-3 text-xs leading-relaxed text-muted-foreground">
-                  <span className="font-semibold uppercase tracking-[0.14em] text-foreground">
-                    Owner reply
+
+              <div className="flex flex-1 flex-col px-6 pb-6 pt-5">
+                <div className="flex items-center justify-between gap-3">
+                  <Stars value={review.rating} label={`${review.rating} out of 5`} />
+                  <span className="text-[0.7rem] uppercase tracking-[0.14em] text-muted-foreground">
+                    {review.when}
                   </span>
-                  <br />
-                  {review.reply}
-                </p>
-              ) : null}
+                </div>
+
+                <blockquote className="mt-5 flex-1 text-sm leading-relaxed text-foreground/90">
+                  <Quote className="mb-2 h-5 w-5 text-primary/60" aria-hidden="true" />
+                  &ldquo;{review.text}&rdquo;
+                </blockquote>
+
+                {review.reply ? (
+                  <div className="mt-5 rounded-sm border border-border bg-surface/70 p-4">
+                    <p className="text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-foreground">
+                      Owner reply
+                    </p>
+                    <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
+                      {review.reply}
+                    </p>
+                  </div>
+                ) : null}
+              </div>
             </li>
           ))}
         </ul>
