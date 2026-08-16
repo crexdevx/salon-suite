@@ -87,7 +87,7 @@ export function Contact() {
       <StructuredData />
       <div className="container-page">
         <div data-reveal data-index={0} className={`mx-auto max-w-2xl text-center ${reveal(0)}`}>
-          <p className="eyrow text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-muted-foreground sm:text-xs">
+          <p className="eyebrow text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-muted-foreground sm:text-xs">
             Find us
           </p>
           <h2
