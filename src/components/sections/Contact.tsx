@@ -73,8 +73,8 @@ export function Contact() {
   const phoneHref = `tel:+91${siteConfig.phone}`;
   const mapEmbedUrl =
     typeof window !== "undefined" &&
-    import.meta.env.VITE_LOVABLE_CONNECTOR_GOOGLE_MAPS_BROWSER_KEY
-      ? `https://www.google.com/maps/embed/v1/place?key=${import.meta.env.VITE_LOVABLE_CONNECTOR_GOOGLE_MAPS_BROWSER_KEY}&q=${encodeURIComponent(siteConfig.fullAddress)}`
+    import.meta.env["VITE_LOVABLE_CONNECTOR_GOOGLE_MAPS_BROWSER_KEY"]
+      ? `https://www.google.com/maps/embed/v1/place?key=${import.meta.env["VITE_LOVABLE_CONNECTOR_GOOGLE_MAPS_BROWSER_KEY"]}&q=${encodeURIComponent(siteConfig.fullAddress)}`
       : siteConfig.googleMapsEmbedUrl;
 
   return (
