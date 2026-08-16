@@ -4,6 +4,8 @@ import { Hero } from "@/components/sections/Hero";
 import { Services } from "@/components/sections/Services";
 import { Gallery } from "@/components/sections/Gallery";
 import { About } from "@/components/sections/About";
+import { Reviews } from "@/components/sections/Reviews";
+
 
 const title = `${siteConfig.name} — Style That Speaks You`;
 const description =
@@ -30,6 +32,8 @@ function Index() {
       <Services />
       <About />
       <Gallery />
+      <Reviews />
+
     </>
   );
 }
