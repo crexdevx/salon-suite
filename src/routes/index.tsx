@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { siteConfig } from "@/config/site";
 import { Hero } from "@/components/sections/Hero";
 import { Services } from "@/components/sections/Services";
+import { About } from "@/components/sections/About";
 
 const title = `${siteConfig.name} — Style That Speaks You`;
 const description =
