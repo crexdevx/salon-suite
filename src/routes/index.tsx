@@ -5,6 +5,7 @@ import { Services } from "@/components/sections/Services";
 import { Gallery } from "@/components/sections/Gallery";
 import { About } from "@/components/sections/About";
 import { Reviews } from "@/components/sections/Reviews";
+import { Contact } from "@/components/sections/Contact";
 
 
 const title = `${siteConfig.name} — Style That Speaks You`;
@@ -33,6 +34,7 @@ function Index() {
       <About />
       <Gallery />
       <Reviews />
+      <Contact />
 
     </>
   );
