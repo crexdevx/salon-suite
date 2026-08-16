@@ -28,6 +28,7 @@ function Index() {
     <>
       <Hero />
       <Services />
+      <Gallery />
       <About />
     </>
   );
